@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="header">
+        <div class="chat-info">
+            <strong>Chat:</strong> Frontend Study Group
+        </div>
+        <div class="user-info">
+            <span>You: Anna</span>
+            <span class="status online">● Online</span>
+        </div>
+        <div class="header-actions">
+            <button>Search</button>
+            <button>Settings</button>
+            <button>Log out</button>
+        </div>
+    </header>
+    <main class="main">
+        <aside class="left-panel">
+            <h2>Participants</h2>
+            <div class="content">
+                <script>
+                    for (let i = 1; i <= 50; i++) {
+                        document.write(`<p class="demo-item">User ${i}</p>`);
+                    }
+                </script>
+            </div>
+        </aside>
+        <section class="right-panel">
+            <h2>Messages</h2>
+            <div class="content">
+                <script>
+                    for (let i = 1; i <= 100; i++) {
+                        document.write(`<p class="demo-item">Message ${i}</p>`);
+                    }
+                </script>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <input class="input" type="text" placeholder="Enter a Message...">
+        <button>Отправить</button>
+    </footer>
+</body>
+</html>
