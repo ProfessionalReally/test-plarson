@@ -1,38 +1,28 @@
-(function() {
+(function () {
     const readyFunctions = [];
 
     function onReady() {
-        readyFunctions.forEach(function(fn) {
-            fn();
-        });
+        readyFunctions.forEach(fn => fn());
     }
 
-    // Регистрация функций, которые должны быть выполнены до или после загрузки документа
     function $$(fn) {
-        if (document.readyState === 'loading') {
-            // Если документ еще не загружен, добавляем функцию в очередь
-            readyFunctions.push(fn);
-        } else {
-            // Если документ уже загружен, выполняем немедленно
+        // If the page is fully loaded, we call it immediately
+        if (document.readyState === 'complete') {
             fn();
+        } else {
+            // Otherwise save and execute later
+            readyFunctions.push(fn);
         }
     }
 
-    // Привязка события DOMContentLoaded, если документ не загружен
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', onReady);
-    } else {
+    if (document.readyState === 'complete') {
+        // Already loaded - call
         onReady();
+    } else {
+        // Waiting for full loading
+        window.addEventListener('load', onReady);
     }
 
-    // Экспортируем $$ для использования
+    // Export $$ for use
     window.$$ = $$;
 })();
-
-$$(() => {
-    console.log('DOM полностью загружен');
-});
-
-$$(() => {
-    console.log('Это тоже выполнится после загрузки DOM');
-});

@@ -2,11 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Task-3</title>
     <script src="index.js"></script>
+    <script>
+        $$(function () {
+            console.log('Launched until fully loaded');
+        });
+    </script>
 </head>
 <body>
-
+<img src="https://placehold.co/600x400?text=Hello+World" alt="img1"/>
+<img src="https://placehold.co/600x400.png" alt="img2"/>
+<script>
+    setTimeout(() => {
+        $$(function () {
+            console.log('Launched after full loaded');
+        });
+    }, 500);
+</script>
 </body>
 </html>
